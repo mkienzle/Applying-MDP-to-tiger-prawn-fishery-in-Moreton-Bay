@@ -1,0 +1,37 @@
+%\documentclass[10pt]{article}
+
+% Language & comments
+%\usepackage[french, english, swedish]{babel}	
+
+%\usepackage{amsmath}
+%\usepackage{amssymb}        % pi, infinity, natural/real symbol...
+%\usepackage{hyperref} 		% interactive pdfs 
+%%\usepackage{apacite}        % APA
+%\usepackage[comma]{natbib}	  % citation
+%\usepackage{pdfpages}
+%\DeclareMathOperator*{\argmax}{arg\,max}
+
+%\begin{document}
+%\selectlanguage{english}
+
+%\section{Materials and Methods}
+
+%We start by formally introducing Markov decision processes and stochastic dynamic programming.\\
+
+\subsection{Markov decision processes}
+
+Markov decision processes (MDP) are mathematical frameworks for modelling sequential decision problems where the outcome is partly stochastic and partly controlled by a decision-maker \citep{bellman_dynamic_1957}. A MDP is defined by five components $< S, A, P, r, C >$ \citep{puterman_markov_1994} : (i) a state space $S$, (ii) an action space $A$, (iii) a transition function $P$, (iv) an immediate rewards function $r$ and (v) a performance criterion $C$ (Fig.~\ref{fig:mdp}). In our system, the state space represents the amount of prawns recruiting to the fishery each year and the action space the total amount of fishing effort applied each year. The transition function captures the impact of fishing on future states of the stock.
+
+The decision-maker aims to direct the process towards rewarding states. From a given state $s$, the decision-maker selects an action $a$ and receives a reward $r(s,a)$. At the next time-step, the system transitions to a future state $s'$ with probability $P(s'|s,a)$\footnote{$P(.|.,a)$ is a transition matrix, {\it i.e.} each row is a probability distribution over future states $s'$.}. The performance criterion $C$ specifies the objective, the time horizon (finite or infinite), the initial state $s_0$ and whether there is a discount rate ($\gamma$). Here, our objective is to maximize the discounted sum of expected ($\mathbb{E}$) rewards over an infinite time horizon: 
+\begin{equation}
+\mathbb{E}[\sum\limits_{t=0}^\infty \gamma^t r(s_t,a_t)|s_0]
+\end{equation}
+
+A policy $\pi$ describes which decisions are made in each state, i.e. $ \pi : S \rightarrow A$. Solving a MDP means finding an optimal policy $\pi^*$, which satisfies in our case:
+\begin{equation}
+\pi^* = \argmax_\pi \mathbb{E}[\sum\limits_{t=0}^\infty \gamma^t r(s_t,\pi(s_t))|s_0]
+\end{equation}
+
+Methods to solve MDPs can be classified into linear programming, value iteration and policy iteration \citep{sigaud_markov_2010}. We choose to use policy iteration, for its efficiency \citep{sigaud_markov_2010} and simplicity. Interested readers can refer to supplementary information for details about the policy iteration algorithm (supplemental materials, section~\ref{SuppSection-PolicyIterationAlgo} p.~\pageref{SuppSection-PolicyIterationAlgo}). We computed solutions to this problem using the MDPtoolbox package in R \citep{MDPtoolbox}.
+
+

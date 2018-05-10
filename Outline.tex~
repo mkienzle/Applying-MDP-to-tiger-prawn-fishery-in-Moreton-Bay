@@ -1,0 +1,229 @@
+\documentclass[11pt]{article}
+\usepackage{verbatim}
+\usepackage{html}
+\usepackage{wasysym}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{ifpdf}
+\ifpdf
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\else
+\DeclareGraphicsExtensions{.eps}
+\fi
+
+\usepackage{setspace}
+\pagestyle{myheadings}
+\markright{Manuscript outline}
+
+%\setlength{\oddsidemargin}{.1375in}
+%\setlength{\evensidemargin}{.1375in}
+\setlength{\oddsidemargin}{.15cm}
+\setlength{\evensidemargin}{.15cm}
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24cm}
+
+\setlength{\headsep}{0.9cm}
+\setlength{\jot}{0.4cm}
+\setlength{\topsep}{0.6cm}
+
+\flushbottom
+
+\long\def\symbolfootnote[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup} 
+
+\long\def\symbolfootnotemark[#1]{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnotemark[#1]\endgroup} 
+
+\thispagestyle{empty}% Remove page numbering
+
+\begin{document}
+
+\title{Outline}
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Title}
+Rising temperatures increasing productivity of brown tiger prawn ({\it Penaeus esculentus}) in Moreton Bay (Australia)\\
+or\\
+Climate effects on the productivity of brown tiger prawn ({\it Penaeus esculentus}) in Moreton Bay (Australia)\\
+or\\
+Climate change increased productivity of brown tiger prawn ({\it Penaeus esculentus}) in Moreton Bay (Australia)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Why are we doing this work ? why is this topic important ? Think about the key question you and your audience might have}
+
+\begin{itemize}
+\item Environment shapes the dynamic of marine population
+\item Understanding effects of climate on fisheries productivity is important to (a) anticipate short-term variations in production and (b) forecast long-terms effects of climate change 
+\item Environmental factors are seldom incorporated to stock assessment
+\item Regression often fails to identify environmental effects
+\item For short-lived species like prawn, the bulk of harvest made each year is composed of new recruits. The productivity of such species depends on factors influencing recruitment. 
+\item Tiger prawn recruitment has been shown to be influenced by ....
+\item {\bf knowledge of the study area and the species}
+\begin{enumerate}
+\item Australian waters are low productivity besides estuaries
+\item Biological production in estuaries is influenced by climate variability
+\item The Brisbane river estuary sustains a brown tiger prawn population located at the southern tip of its distribution
+\item Climate change is increasing the proportion of tropical species in subtropical fisheries (Cheung et al, temperature of the catch). 
+%\item Temperature was found to play an important on catchability of tiger prawn in Moreton Bay fishery (Kienzle et al.,2014)
+\item A SRR has been described for tiger prawn in Moreton Bay because the spawning stock biomass was driven to low level enough to induce a recruitment response (Kienzle et al.,2014, Walters and Martell, 2004)
+\item The Ricker SRR relationship was not significant (Kienzle et al.,2014) suggesting that other factors than SSB, possibly environmental factors, were influencing recruitment.
+\item Fishery production of short lived species is driven by recruitment. Environmental effects of recruitment can potentially plays a major influence of production of such species %(Studying the dynamic of recruitment is important, in particular for short lived species referred to as recruitment driven stocks)
+\item Recruitment is has been shown to vary in response of rainfall (Penn and Caputi, 1986) %thought to vary in response to environmental variations
+\end{enumerate}
+%\item We propose to use a stock assessment to investigate environmental variable
+%\item Understanding environmental drivers of fisheries productivity provides industry with the tools to devise ecologically efficient harvest strategies adapted to future environment [ but beyond industry, it helps understanding the impact of other human activity (dam construction, coastal development, etc...) on natural populations ]
+\item {\bf How did you approach the problem}
+\begin{enumerate}
+%\item We suggest to use stock assessment to investigate the effects of environmental variables on fishery production
+%\item Assess which model best describe the variation of catchability ?
+%\item How important are daily variations of temperature ?
+%\item Is it possible to estimate natural mortality ? and what the implecations of doing so ?
+%\item Is recruitment variation an important factor to account for ?
+\item We looked at which environmental variable could explain recruitment variability ?
+\end{enumerate}
+
+%\item Studying the relationship between stock and recruitment is important especially for short lived species referred to as recruitment driven stocks
+%\item About 50\% of the MB tiger prawn SRR remains un-explained
+%\item Kienzle et al (2014) showed temperature played an important role in the dynamic of tiger prawn fisheries [Temperature regulate the metabolic process of poikilotherms ]
+\item Which environmental variable (rainfall, temperature, ...) explains residual recruitment variability ?
+%\item How important is it to include daily measurements of temperature ?
+%\item How important is variation of recruitment timing on the dynamic of this fishery ?
+%\item Are there evidences of pre-poning of recruitment ? lengthning of the warmer season and fishing season ? Will Moreton Bay loose its seasonality and become similar to the Gulf of Carpentaria  ?
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+
+\begin{itemize}
+  \item 70\% of recruitment variability is explained by average maximum temperature in January at Cape Moreton lighthouse and SSB
+  \item the interaction term is not significant
+  \item a parabolic effect of temperature [ biologically more realistic ] provides as good a fit as the linear
+  \item Recruitment increased x folds for each degree of temperature over the past 20 years
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\newpage
+\section{Detailed content of the article}
+
+
+\noindent{\bf 1. Introduction}
+\begin{itemize}
+
+\item Temperature defines the geographic distribution of many species, in particular poikilothermes which body temperature is set by their environment. 
+
+\item Tiger prawn ({\it Penaeus esculentus}) is a tropical crustacean endemic to Australia and found around the Northern half of this continent (map). Cool water ( $<$ 20 $^{o}$C) is probably the major physical factor limiting the distribution of juvenile P. esculentus in natural fisheries \citep{Keys2003325}. This species has been commercially fished in Moreton Bay at least since ..... At present, Moreton Bay is the southernmost commercial fishery for tiger prawn on the east coast of Australia. %although there has been anecdotal evidences of commercial catches of tiger prawn in the Clarence river. Moreton Bay is located at the southern limit of distribution. 
+
+\item Adult {\it P. esculentus} are not efficient osmoregulators at salinities below 30 and 50\permil, their lower lethal limit is 10\permil  (Dall, 1981) [taken from \cite{Keys2003325}].
+
+\item Nutrients limit primary production in tropical and substropical seas [ Ecology by C. Krebs ]. Primary productivity can be predicted from a knowledge of light and biomass of chlorophyll and the action of limiting nutrients is on the biomass of chlorophyll in the phytoplankton.
+
+%\item Global warming is impacting marine ecosystems. Changes in marine population distributions have been observed with polewards and deeper movements being documented. 
+
+\item The distribution and abundance of many fishes and invertebrates have shifted poleward and/or to deeper, cooler waters (IPCC, high confidence). Many marine species changed their distribution in response to rise sea temperatures (CITE). Climate change will almost certainly shift the distribution of tiger prawn southwards placing Moreton Bay closer to the center of its distribution.
+
+\item In response to further warming by 1°C or more by the mid 21st century and beyond, ocean-wide changes in ecosystem properties are projected to continue (high confidence). Large irreversible shifts in the spatial distribution of species and seasonal timing of their activities (feeding, growth, development, behaviors, and productivity) will have implications for species composition, and ecosystem goods and services. [IPCC 6.3.1, 6.4, 6.5, 6.6]
+
+\item By the mid 21st century, the spatial shifts of marine species will cause species richness to increase at mid and high latitudes (high confidence) and to decrease at tropical latitudes (medium confidence), resulting in global redistribution of catch potential for fishes and invertebrates, with implications for food security (medium confidence)
+% of many species and their responses to climate change. Shifting temperature means and extremes alter 
+%habitat (e.g., sea ice and coastal), and cause changes in abundance through local extinctions and latitudinal 
+%expansions or shifts (very high confidence)
+
+\item What was the impetus to develop this analysis ? What approach did we used ? What were the specific difficulty of the analysis ? How did we approach the problem ? 
+
+\item Brown tiger prawn displays a range of strategies to minimize the risk of predation. Prawns buries in the substrate during the day and emerge shortly after dusk to feed until towards the end of the night \citep{hill87a}, constraining trawlers to operate at night when tiger prawn catch rates are higher \citep{garcia1981life}. Temperature is known to determine the duration of emergence \citep{hil85a} by regulating the digestion speed and increasing the frequency an animal has to feed each night.
+
+\item {\bf What did we know ?}\cite{hil85a} described experimentally a positive relationship between temperature and emergence time (Fig.~\ref{fig:EstimatesOfAvailability}). \cite{2013arXiv1306.3619K} identified that it could explain the variation of catchability in the tiger prawn fishery in Moreton Bay using average monthly temperature records. The present work extend this approach by combining daily estimate of temperature into the model of the dynamics of the fishery to assess (a) if it improves the fit of the model to the data and (b) allow to evidence effect such as the variability of timing in recruitment happening a the time-scale of weeks rather than months.
+
+\item Describe the study area
+
+\end{itemize}
+
+\noindent {\bf 2. Materials and methods}\\
+
+\noindent {\it 2.1 Climate data}
+\begin{itemize}
+\item BOM stations around Moreton Bay
+\item Temperature data
+\item Rainfall data
+\end{itemize}
+
+\noindent {\it 2.2 Recruitment and spawning stock biomass estimates}
+\begin{itemize}
+\item Delay difference model
+\item Recruitment estimates
+\item Spawning stock biomass estimates
+\end{itemize}
+
+\noindent {\it 2.3 Stock recruitment relationship}
+\begin{itemize}
+\item Ricker model and linearisation
+\item Multiple linear regression, stepwise selection of environmental variables
+\item Steepness of Ricker relation and $\frac{dR}{dS}$
+\end{itemize}
+
+
+\noindent {\bf 3. Results}\\
+\noindent {\it 3.1 Recent trends in temperature}
+\begin{itemize}
+\item temperature trends from 1960 to 2015 [ highlight 1990 to 2010 ]
+\item Is there evidence of a warming in the temperature time serie ?
+\end{itemize}
+
+\noindent {\it 3.2 Variable explaining recruitment variability}
+\begin{itemize}
+\item Effects of temperature and SSB
+\item Compare a model with SSB, temp + SSB and temp * SSB -> no effect of interaction
+\item Compare a model with a parabolic function of temperature
+\end{itemize}
+
+\noindent {\it 3.3 Effect of temperature on productivity}
+\begin{itemize}
+\item The steepness of Ricker' SRR is related to temperature
+\item Steepness as a linear function of temperature
+\item Steepness as a non-linear function of temperature
+\end{itemize}
+
+\noindent {\bf 4. Discussion}\\
+
+\begin{itemize}
+\item This work suggested that increased tiger prawn production observed between 1990 and 2010 was to a large extent driven by environmental changes that benefited this species in Moreton Bay. And to a lower extent by the reduction in fishing pressure induced by economic factors. Both factors worked synergestically to produce a more productive stock at the end of the period. The synchrony of these 2 factors which shifted around 2000 is fortuitious.
+\item These results imply that further global warming will increase even more the productivity of brown tiger prawn in Moreton Bay
+\item Aquaculture research suggest that the optimal water temperature is between 30 and 35 $^{o}$C
+\item How do you deal with confounding between increasing fishing power and rising sea temperature ? is there confounding ? On reflection, it is quite obvious why statistics on observational data cannot tease apart the interacting effects: the confounding takes place because poor recruitments lead to poor spawning stocks (as well as vice-versa) \citep{Wal&Mar2004b}, p.175.
+\item Is increase of recruitment due to increase in fecundity, longer spawning/reproduction period, higher survival rates from eggs to recruitment ?
+\item This work suggest that from a situation of un-predictability, we are now in a position to predict good/bad years using average temperature in January at Cape Moreton lighthouse station and SSB.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Citations}
+
+\begin{itemize}
+\item "There is one generalization that stands out: correlations for populations at the limit of a species' geographical range have often remained statistically signficant when re-examined." \citep{Myers:1998}
+\item "Environment-recruitment correlations for populations at the geographical limit of a species range were often confirmed if the sign of the predicted correlation was appropriate" \citep{Myers:1998}
+\item Re-iterate that max. air temperature are strongly correlated with water temperature (cite the most recent paper), hence water temperature have risen inline with max air temperature increasing tiger prawn productivity in Moreton Bay.
+\item When the mean recruitment relationship appears to be changing in a persistent way (with nonstationarity or long-period regime shifts represented by a very high autocorrelation in the recruitment anomalies), the best policy may still be a fixed-escapement or fixed-exploitation rate rule, but with the parameters of the rule adjusted each year by essentially assuming that the most recent anomalies will persist into the future. Persistent changes in recruitment relationships appear to be common today \citep{Wal&Mar2004b}.
+\item Climate change will affect the benchmarks used in fisheries management. Understanding and quantifying the effect of climate change on populations in combination with the effect of exploitation is a major challenge to rebuilding and maintaining sustainable fisheries in the coming decades \citep{Hare2010a}.
+\item Including temperature in the stock-recruitment relationship permitted the detection of a significant compensatory population effect (e.g., a dome-shaped stock-recruitment function) that was masked by temperature-driven variability  \citep{Hare2010a}.
+\item In any region, some species will be positively affected by climate change while others will be negatively affected \citep{Hare2010a}.
+\item Because black tiger prawns are a tropical species, their best growth rates occur when water temperatures are 25-30oC. Feeding stops at around 20$^{o}$C and death will occur around 14-15$^{o}$C. This temperature range limits production to one crop during summer in areas south of Mackay and two crops between Cardwell and Cooktown, provided good management, controlled stocking rates and selective harvesting are in place. (copied from \url{https://www.business.qld.gov.au/industry/fisheries/aquaculture/aquaculture-species/black-tiger-prawn-aquaculture/cultural-environment-tiger-prawns})
+\item Growth of penaeid prawns in ponds is usually much faster than in the wild. Tiger prawns can be grown from postlarvae to a market size of 30g or more in 3-6 months, depending upon conditions in the pond, especially temperature and stocking density. The optimum temperature ranges for growth of tiger prawns and school prawns are 25-35$^{o}$C and 21-27$^{o}$C respectively. Outside these ranges growth rates are slowed down. (copied from \url{http://www.dpi.nsw.gov.au/fisheries/aquaculture/publications/species-saltwater/prawns})
+\item \cite{Chaitanawisuti2013a} showed that temperature had a greater influence on survival of postlarvae P. monodon than salinity and low water temperature (29$^{o}$C) gave better larval survival than higher water temperatures (33$^{o}$C and 35$^{o}$C)
+\item In their native range, tiger shrimp mature and breed in tropical marine habitats. Larvae, juveniles and sub-adults occupy shallow coastal estuaries, lagoons, and mangrove areas. Sub-adults subsequently move offshore, where they mature and breed, living on sand or muddy-sand bottom in up to 110 m water depth (Holthuis 1980). Temperature is an important environmental variable that influences not only the success of P. monodon culture, but also the survival and dispersal of wild P. monodon in areas where it is introduced. Survival and growth are optimal at temperatures between 28$^{o}$C and 33$^{o}$C, but growth is unlikely below 20$^{o}$C (Lumare et al. 1993). 
+\item Environmental requirement for tiger prawn habitat, p.179 in \cite{das2014estuarine}: salinity ranges between 10 and 25 ppt; optimal temperature range for good growth and survival rates of tiger prawn ({\it penaeus monodon} ?) is 25--30$^{o}$C; minimum acceptable dissolve oxygen (DO) level is 3--4 mg/L; water PH of 5 and below is lethal to prawns like tiger prawns. pH range between 7.0--8.5 is optimal for growth and development of prawn; Presence of hydrogen sulphide (H2S) and low DO levels are detrimental to their survival as tiger prawns are bottom dweller.
+\item  Fastest growth of juvenile tiger prawns ({\it Penaeus esculentus}) was estimated to be at 30 $^{o}$C and 30 per thousands \citep{O'Brien1994133}
+\item "... the walleyed pollock population of the Bering Sea and Gulf of Alaska is presently the largest fished stock in the world. ... However, the recent years have lacked sustained periods of good recruitment, apparently because of climate-related changes in ocean processes \citep{bakun1996patterns}.
+\item Rivers generally contain nutrient levels that range from a few times to several orders of magnitude higher than the nutrient level of surface coastal water. Accordingly, estuaries and the ocean areas off mouths of rivers tend to be particularly productive segments of the marine habitat \citep{bakun1996patterns}.
+\end{itemize}
+
+%% Bibliography
+\bibliographystyle{plainnat}
+\bibliography{/home/mkienzle/mystuff/Bibliography/long,/home/mkienzle/mystuff/Bibliography/Biblio}
+
+
+\end{document}

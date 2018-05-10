@@ -1,0 +1,86 @@
+%\documentclass[10pt]{article}
+
+% Language & comments
+%\usepackage[french, english, swedish]{babel}	
+
+%\usepackage{amsmath}
+%\usepackage{amssymb}        % pi, infinity, natural/real symbol...
+%\usepackage{hyperref} 		% interactive pdfs 
+%%\usepackage{apacite}        % APA
+%\usepackage[comma]{natbib}	  % citation
+%\usepackage{pdfpages}
+%\DeclareMathOperator*{\argmax}{arg\,max}
+
+%\begin{document}
+%\selectlanguage{english}
+
+%\section{Materials and Methods}
+
+We start by formally introducing Markov decision processes and stochastic dynamic programming.\\
+
+\paragraph{Markov decision processes}\mbox{} \\
+
+Markov decision processes (MDP) are mathematical frameworks for modelling sequential decision problems where the outcome is partly stochastic and partly controlled by a decision-maker \citep{bellman_dynamic_1957}. A MDP is defined by five components $< S, A, P, r, C >$ \citep{puterman_markov_1994} : (i) a state space $S$, (ii) an action space $A$, (iii) a transition function $P$, (iv) immediate rewards $r$ and (v) a performance criterion $C$. In our system, the state space represent the amount of prawns in the system and the action space the fishing effort. The transition function captures the impact of fishing on future stocks. \\
+The decision-maker aims to direct the process towards rewarding states. From a given state $s$, the decision-maker selects an action $a$ and receives a reward $r(s,a)$. At the next timestep, the system transitions to a subsequent state $s'$ with probability $P(s'|s,a)$. The performance criterion $C$ specifies the objective (e.g. maximise or minimise a sum of expected future rewards), the time horizon (finite or infinite), the initial state $s_0$ and whether there is a discount rate ($\gamma$). Here, we deal with discounted infinite time horizon, where we maximise 
+\begin{equation}
+\mathbb{E}[\sum\limits_{t=0}^\infty \gamma^t r(s_t,a_t)|s_0]
+\end{equation}
+A policy $\pi$ describes which decisions are made in each state, i.e. $ \pi : S \rightarrow A$. Solving a MDP means finding an optimal policy $\pi^*$, which satisfies in our case:
+\begin{equation}
+\pi^* = \argmax_\pi \mathbb{E}[\sum\limits_{t=0}^\infty \gamma^t r(s_t,\pi(s_t))|s_0]
+\end{equation}
+
+\begin{figure}
+\begin{center}
+\includegraphics{mdp.png}
+\end{center}
+\caption[Decision diagram of a Markov Decision Process]{Decision diagram of a Markov Decision Process. Full arrows show relations of dependence, e.g. the value of $s_{t+1}$ (or $s'$) depends on $s_t$ (or $s$) through the probability $p$. Dashed arrows illustrate what factors the agent bases their decision upon; here, the best action is based on the current state only (Markov property).}
+\label{fig:mdp}
+\end{figure}
+
+\paragraph{Stochastic Dynamic Programming} \mbox{} \\
+
+Stochastic dynamic programming (SDP) denotes a collection of solution methods to solve MDPs (see \cite{marescot_complex_2013}). We use a method called \textit{policy iteration}: starting from any initial policy $\pi_0$, the best current policy $\pi$ is evaluated (step 1) and improved (step 2) repeatedly until it is optimal ($\pi^*$).  \\
+
+1) The evaluation consists of calculating a value $V_\pi(s)$ for each state $s \in S$. This value corresponds to the sum of future rewards one can expect, starting from the state $s$ when implementing the policy $\pi$. The value function captures the desirability of the different states, and will help select the optimal actions. Formally,
+
+\begin{equation}
+V_\pi(s) = \mathbb{E}[\sum\limits_{t=0}^\infty \gamma^t r(s_t,\pi(s_t))|s_0=s]
+\end{equation}
+
+The following recursive formula holds: 
+
+\begin{equation}
+V_\pi(s) = r(s,\pi(s)) + \gamma \sum_{s' \in S} P(s'|s,\pi(s)) V_\pi(s')
+\end{equation}
+
+This can be calculated iteratively (backwards induction) or through a matrix inversion, since the value function can be rewritten: 
+
+\begin{equation}
+V_\pi = r_\pi + \gamma P_\pi V_\pi
+\end{equation}
+with $r_\pi$ and $P_\pi$ the reward and transition matrix associated with the policy $\pi$. Noting $I$ the identity matrix, this implies
+
+\begin{equation}
+V_\pi = (I-\gamma P_\pi)^{-1}r_\pi  \label{eq:evaluation}
+\end{equation}
+
+Note that $I-\gamma P_\pi$ is always invertible when $\gamma<1$ because $P_\pi$ is a transition matrix. \\
+
+2) Once the value $V_\pi$ has been evaluated, we can improve the policy $\pi$ by selecting the best actions (Bellman's equation): 
+
+\begin{equation} \label{eq:improvement}
+\pi(s) = \argmax_{a \in A} [r(s,a)+ \gamma \sum_{s' \in S} P(s'|s,a)V_\pi(s')]
+\end{equation}
+
+Equations \ref{eq:evaluation} and \ref{eq:improvement} are computed several times until the policy $\pi$ converges to the optimal policy $\pi^*$. The outputs of policy iteration are the optimal policy $\pi^*$ and the optimal value $V_\pi^*$. \\
+
+The use of SDP has increased in the conservation literature in the last decade, with applications in biological invasions \citep{firn_managing_2008,regan_optimal_2006}, disease management \citep{chades_general_2011}, release of biocontrol agents \citep{shea_optimal_2000}, harvesting \citep{williams_adaptive_1996}, migratory species \citep{nicol_adaptive_2013}, recovery of interacting species \citep{chades_setting_2012} and fire regimes \citep{mccarthy_using_2001,possingham_optimal_1997,richards_optimal_1999}. 
+
+%\newpage 
+%\bibliography{phd} 
+%\newpage 
+
+%\iffalse \fi
+
+%\end{document}

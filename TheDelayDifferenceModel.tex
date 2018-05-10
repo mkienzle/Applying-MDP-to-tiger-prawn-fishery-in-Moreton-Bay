@@ -1,0 +1,64 @@
+% a weekly delay difference was used to represent the dynamic of this stock in response to environmental and fishing pressure.
+% Calibration the model
+% Stock-recruitment relationship
+% Simulated dataset. Calculating MSY ( = 209 +- 79 tonnes) for 20500 boat-days of effort.
+
+A delay-difference model, calibrated to logbook data \citep{KienzleEtAl2015}, was used to generate synthetic data about the tiger prawn fishery in Moreton Bay. Those data were converted into a transition matrix required as an input to the MDP method.
+
+\paragraph{Tiger prawn stock assessment model}
+
+This weekly biomass ($B_{w}$) dynamic model of brown tiger prawn consists of a delay-difference model \citep{sch85a} fitted to logbook data collected between 1990 and 2010 and grouped into weekly timesteps: 
+
+\begin{equation}
+B_{w} = s_{w-1} \ B_{w-1} + \rho \ s_{w-1} \ B_{w-1} - \rho \ s_{w-1} \ s_{w-2} \ B_{w-2} - s_{w-1} \ \rho \ w_{k-1} \ R_{w-1} + w_{k} \ R_{w} \ ,\  3 \leq w \leq 1092
+\end{equation}
+
+Sex-combined growth parameters ($\rho$ = 0.963, $w_{k-1}$ = 17.8 g and $w_{k}$ = 19.5 g), derived from von Bertalanffy estimates \citep{grib94a}, were fixed in the model. This model assumed all prawns were fully recruited to the fishery (knife-edged selectivity) at an age of 22 weeks ($k=22$), weighing 19.5 grams. Survival ($s_{w}$) varied as a function of natural mortality rate ($M$) and fishing mortality ($F_{w}$) which is proportional to effort ($F_{w} = q E_{w}$). Natural mortality ($M$), catchability ($q$) and recruitment ($R_{w}$) were estimated by fitting the delay-difference model to logbooks data \citep{KienzleEtAl2015}. This model included all environmental and fishing effects known to influence the dynamics of this population of prawns: temperature has been recognized as a factor influencing availability of prawns and the effect of fishing accounts for both changes in fishing power through time as well as catchability \citep{KienzleEtAl2015}.
+
+\paragraph{Calibrating the stock assessment model}
+
+A total of 29 parameters (two catchability parameters, two initial biomass ($B_{1}$ and $B_{2}$), two von Mises parameters, one natural mortality, twenty one annual recruitment parameters and $\sigma$, one standard deviation of observation errors) were estimated by maximum likelihood assuming the square-root of predicted catch ($\hat{C}_{w}$, \cite{quin99b}) 
+
+\begin{equation}
+        \hat{C}_{w} = \frac{q \ E_{w}}{ M + q \ E_{w}}  B_{w} ( 1 - \exp[-(M + q \ E_{w})])
+\end{equation}
+
+\noindent provided the mean of a Normal distribution of the square-root of observed catches ($C_{w}$) \citep{dichmont2003application} with residual standard deviation ($\sigma$). The negative log-likelihood function used to fit the model was \citep{haddon2010modelling}
+
+\begin{equation}
+-\log(L) = n \ log(\sqrt{2 \pi} \sigma) + \frac{1}{2 \sigma^{2}} \sum_{w=1}^{1092} \bigl ( \sqrt{\hat{C}_{w}} - \sqrt{C_{w}} \ \bigr ) ^{2}
+\end{equation}
+
+The model was implemented in C++ and used the MINUIT minimization library \citep{minuit2} available through ROOT \citep{root}. The code of this delay-difference stock assessment model is available at \url{https://github.com/mkienzle/DelayDifference}.
+
+\paragraph{Closing the life-cycle with a recruitment model} 
+Investigations of a relationship between spawning stock biomass and recruitment found fitting Ricker stock-recruitment relationship (SRR) was not significant \citep{Kienzle2014138}. Beverton and Holt SRR provided a better fit to the data \citep{KienzleEtAl2017} and was used to relate the abundance in successive generations of prawns:
+
+\begin{equation}
+    \begin{split}
+  &{\rm log} \Bigl(\frac{R_{t}}{S_{t}}\Bigr) = 16.1 - {\rm log}(972.5 + S_{t}) + \varepsilon_{t} \\
+  &\varepsilon_{t} \sim \mathcal{N}(\mu=0,\,\sigma^{2}=0.4)  
+    \end{split}
+  \end{equation}
+
+\noindent Where $R_{t}$ is the total number of recruits each year and $S_{t}$ is the spawning stock biomass (SSB) in kg. The random noise masks most of the signal from the SRR (Fig.~\ref{fig:BevertonAndHoltSRR-NaturalScale-WithCategories}) resulting in recruitment levels that are random for almost all levels of SSB except for the lowest. Total number of recruits each year ($R_{t}$) were distributed weekly in the simulations using a von Mises distribution \citep{mardia1999directional} with mean and concentration parameters set respectively to 0.53 and 4.74.
+
+\paragraph{Biological reference point} We calcualted Maximum Sustainable Yield (MSY) or Maximum Average Yield \citep{Mace2000MSYa} by simulation using SRR in combination with the calibrated delay-difference model over periods of 50 years. We performed 310,000 replications with effort ranging from 0 to 30,000 boat-days per year to plot the distribution of catch in the final year as a function of effort (Fig.~\ref{fig:ProjectedCatchvsEffort}). Total simulated yearly effort was distributed among the 52 weekly time steps, used in the delay-difference model, applying the average pattern of fishing targeted at tiger prawn \citep{Kienzle2014138}) observed over the last 5 years of data (2006--2010) (Fig.~\ref{fig:EffortPattern}). Maximum Average Yield (MAY) was estimated to equal 217 $\pm$ 85 tonnes, similar to those estimated by \cite{NaWang2015a}, and larger than the 145 $\pm$ 53 tonnes obtained with Ricker's SRR \citep{Kienzle2014138}: replacing the dome-shaped Ricker by an asymptotic Beverton-Holt's SRR had a significant effect on the estimation of effort at MAY ($\rm{E_{MAY}}$), increasing it 4 fold to 19,500 compared with 5,400 boat-days estimate in \cite{Kienzle2014138} and 5157 boat-days, ranging from 3531 and 7912 boat-days, estimate in \cite{NaWang2015a}. Such high uncertainties about reference points are common in fisheries research \citep{hil92b}.
+
+\paragraph{Transition matrix} We chose recruitment as the state variable and fishing effort as the action of the MDP. We computed the transition matrix from simulated data generated as described above. We varied total yearly effort ($E_{t}$) between 0 and 30,000 boat-days, drawing for each simulation uniformly within the following 31 categories 0, [1;1,000), [1,000; 2,000), ..., [29,000; 30,000] and distributed into 52 weekly effort values ($E_{w}$) using the pattern of weekly effort observed in the fishery between 2006 and 2010 (Fig.~\ref{fig:EffortPattern}). We replicated simulations over a 50-year period 10,000 times for each effort category to create a set of simulated data. We used recruitment in the last 2 years of the 50-year simulations to compute the transition between recruitment in year $t$ and $t+1$ to reduce the influence of initial simulation conditions. We binned simulated recruitment into three categories bounded by the 0\%, 33\%, 66\% and 100\% percentiles of its distribution, representing 3 categories of tiger prawn recruitment (low, medium and high). These categories correspond to the following ranges of number of recruits: [1.19e+06; 7.81e+06), [7.81e+06; 1.12e+07) and [1.12e+07; 6.62e+07]. As a result, we obtained a three-dimensional transition matrix, of size $(S,S,A)$= (3,3,31), representing the probabilities for the stock of tiger prawn transitioning from a particular state of recruitment (low, medium and high) in year $t$ to any category of recruitment in year $t+1$ after being fished with fishing effort belonging to one of the 31 categories of fishing effort. (Fig.~\ref{fig:BubblePlotOfTransitionMatrix}).\\
+
+The state variable in a MDP must have the property of a Markov process. We assessed this property using an analysis of auto-correlation applied to the simulated recruitment time-series, lagged between 1 and 10 years, using the auto-correlation function (acf) available from the R-package MASS \citep{MASS}. This analysis showed simulated recruitment to be auto-correlated significantly only for a lag of 1 year ($\rho=2.25e-02$, ${\rm P-value} < 2.2e-16$) confirming that it has the property of a Markov process.
+
+\paragraph{Economic model} The reward from the action ($a$) of fishing each year with level of effort ($E_{t}$) was rewarded ($r(s,a=E_{t})$) by the profit, in dollars (\$), calculated as the difference between revenue (i.e. catch per year ($C(s,a)$ in kg) times the price per kg of prawns ($P$)) minus the cost of fishing (i.e. effort ($E_{t}$) times cost per unit effort ($\xi$ in \$ per boat-day)), for the entire fleet each year:
+
+\begin{equation}
+r(s,a=E_{t}) = C(s,a=E_{t}) \ P - \xi \ E_{t}
+\end{equation}
+
+This choice was made after investigating both catch and catch per unit effort as reward functions and noticing that they provided unrealistic and unobserved optimal strategies. \\
+The yearly catch was calculated with the weekly delay-difference model: $C(s,a=E_{t})=\sum_{w=1}^{52} \hat{C}_{w} $ where $E_{t} = \sum_{w=1}^{52} E_{w}$. 
+
+The price of prawns per kg ($P$) was varied between \$6 and \$40; the cost of fishing was varied from \$0 to \$500 by \$100 increments.\\
+
+%Previous bioeconomic analyses of similar prawn fisheries showed MEY to be more sensitive to price of prawns and fishing costs changes than discount rate values \citep{Kompas2010a}. The discount rate was set to $\gamma=0.9$.
+The discount factor ($\gamma$) is a parameter in the MDP which captures the value of money to fishers at a given time relative to its value one time step earlier: a small $\gamma$ favors making money by fishing in the present while a value close to one puts almost equal weight to money made in the present or into the future. The profit function in the MDP measures the income made by fishers from catching tiger prawns. The necessity for fishers to make an income every year situates the value of $\gamma$ probably above and beyond inflation (2.5\% per year) and interest rates (4.5\%/yr) combined corresponding to $\gamma < 0.93$. Nevertheless given the uncertainty on this parameter, we performed the analysis with $\gamma$ ranging from 0.6 to 0.98. 

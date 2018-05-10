@@ -1,0 +1,192 @@
+\documentclass[11pt]{article}
+\usepackage{verbatim}
+\usepackage{html}
+\usepackage{wasysym}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{ifpdf}
+\ifpdf
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\else
+\DeclareGraphicsExtensions{.eps}
+\fi
+
+\usepackage{setspace}
+\pagestyle{myheadings}
+\markright{Manuscript outline}
+
+%\setlength{\oddsidemargin}{.1375in}
+%\setlength{\evensidemargin}{.1375in}
+\setlength{\oddsidemargin}{.15cm}
+\setlength{\evensidemargin}{.15cm}
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24cm}
+
+\setlength{\headsep}{0.9cm}
+\setlength{\jot}{0.4cm}
+\setlength{\topsep}{0.6cm}
+
+\flushbottom
+
+\long\def\symbolfootnote[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup} 
+
+\long\def\symbolfootnotemark[#1]{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnotemark[#1]\endgroup} 
+
+\thispagestyle{empty}% Remove page numbering
+
+\begin{document}
+
+\title{Outline}
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Title}
+
+% chose whether your title should describe your method or your results
+
+Increasing effort as recruitment increases in prawn fishery increases profit sustainably according to a Markov Decision Process
+Increasing effort at higher abundance maximizes profit in prawn fisheries sustainably according to a Markov Decision Process approach
+Increasing effort at higher abundance is the optimal strategy to harvest prawns revealed by Markov Decision Process approach
+%Increasing effort at higher abundance is the optimal strategy to harvest prawns according to a Markov Decision Process
+%A harvest strategy for tiger prawn in Moreton Bay optimized with respect to biological and economic factors using a Markov Decision Process
+%Optimal bioeconomic harvest strategy for tiger prawn in Moreton Bay according to a Markov Decision Process
+Optimal harvest strategy for tiger prawn in Moreton Bay according to a Markov Decision Process
+%Optimal harvest strategy for fishing prawns according to a Markov Decision Process
+%Searching for optimal management policy using Markov Decision Processes: an application to Moreton Bay tiger prawn fishery.
+%Are fisheries management targets moving targets ? perspective from a Markov Decision Process model
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{abstract}
+
+\begin{itemize}
+\item We applied a Markov Decision Process to determine the optimal strategy to harvest sustainably one of Qld natural marine resource taking into account its biological and ecological characteristics.
+\item Provide a method that balances the economic benefit of fisheries within the carrying capacity of the environment
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Why are we doing this work ? what are MDPs ? Think about the key question you and your audience might have}
+
+\noindent {\bf Background on Markov Decision Processes}
+  
+\begin{itemize}
+
+\item Markov Decision Process is a method to study sequential decisions problems in stochastic environment
+\item It provides a method to determine optimal decisions when the consequence of actions on the system studied is uncertain
+\item Rational decision making requires reasoning about uncertainty in the system under consideration.
+\item Previous application to fisheries ? Previous applications of MDP in fisheries (Mendelssohn; Walters) have focused on actions to control the number of spawners which is difficult and costly to quantify precisely. We opted instead to condition the MDP to evaluate policies regarding the magnitude of fishing effort expanded by the industry as it relates directly to the effect of the fishing industry (the agent) on the fish stock (the system). Moreover it links directly to the outcome (rewards) fishermen are seeking from fishing. Parametrizing an MDP with these variables was made possible because of the availability of a comprehensive ecological model of the fishery (Kienzle, 2014; Kienzle, 2016) that permitted to quantify the effects of various levels of fishing effort on the brown tiger prawn fishery in Moreton Bay.
+
+\end{itemize}
+
+\noindent {\bf Background on fisheries and particularly the case study}
+
+\begin{itemize}
+\item Fisheries production varies through time, often in unpredictable ways
+\item Fishing increase mortality and deplete the biomass of fish left to spawn, decreasing the capacity of a population to reproduce. This relationship is modeled through a stock-recruitment function.
+\item The abundance of young fish contributing to replenish a stock every year highly variable: besides of spawning biomass, it depends on many other, often unknown, factors including difficult to predict environmental conditions. The relative importance of spawning stock versus other causes of recruitment variability is debated.
+\item In fisheries management, the largest source of uncertainty is recruitment variability. This uncertainty arises from practical and theoretical limitations in our ability to predict recruitment.
+\item In the case of short-lived species (lifespan ~ 1year), the biomass of fish available for harvest in each fishing season is directly determined by the magnitude of recruitment. Hence the abundance of fish avaible for catching varies substantially from year to year.
+  
+\end{itemize}
+
+It's almost a tautology to say that fisheries dynamics are driven in part by the economic rewards of fishing. But one could be excused to miss completely that point if she/he was to focus only on ecological aspects. To exists, a fishery must target an abundant population as well as generate sufficient profits to sustain its activity.\\
+
+\noindent {\bf What did we do ?}
+
+\begin{itemize}
+\item We applied a Markov Decision Process to determine the optimal strategy to harvest sustainably brown tiger prawn ({\it Penaeus esculentus}) in Moreton Bay taking into account its biological and ecological characteristics.
+\item The single species stock assessment was adapted into a Markov Decision Process framework calculating the probability this natural resource transiting from one state to another every year according to the magnitude of fishing effort expanded in the fishery. A profit reward function was used to quantify the benefit of fishing at the scale of the entire industry. 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\newpage
+\section{Detailed content of the article}
+
+
+\noindent{\bf 1. Introduction}
+\begin{itemize}
+
+\item What is an harvest strategy ?
+\item Does tiger prawn fishery in Moreton Bay has an harvest strategy ? no, this is why we decided to look for one -
+\item So tell me a bit more about the tiger prawn fishery: how is it regulated ? How did it fare in the past 20 years ? What do we know about it (recruitment variability)
+
+\item How did you go about looking for harvest strategies / How did we investigate various harvest strategy ? we used an MDP 
+\item What is an MDP ?
+\item MDP are well suited to compare all possible harvest strategies and determine which is optimal
+\item Have MDPs been used in the past ?
+
+\item the objective of this study was to look for a harvest strategy that accounted for capacity of this natural resource to produce a sustainable yield.
+
+\end{itemize}
+
+\noindent {\bf 2. Materials and methods}\\
+
+%Several components go into finding an optimal solution to a decision problem. First, a biological component must be specified, which gives the response of the harvested population to a set of actions from the fishing industry.
+
+\noindent {\it 2.1 The tiger prawn fishery model}
+\begin{itemize}
+\item the trawl fishery in Moreton Bay harvest multiple species. Only tiger prawn has been extensively studied and modelled because it is the most value. Tiger prawn are targeted part of the year during a fishing season that extent from mid-January to mid-May and a little in Oct-Nov.
+\item a weekly delay difference was used to represent the dynamic of this stock in response to environmental and fishing pressure.
+\item Calibration the model
+\item Stock-recruitment relationship
+\item Simulated dataset. Calculating MSY ( = 209 +- 79 tonnes) for 20500 boat-days of effort.
+\end{itemize}
+
+\noindent {\it 2.2 Casting the problem into a Markov Decision Process framework}
+\begin{itemize}
+\item Defining the model on a discrete grid
+\item Actions: fishing is rewarded by catch. Fishing impacts on future productivity.
+\item State and transition matrices. yearly timesteps.
+\item Reward. Economic data
+  % The reward to the industry from fishing was set as making a profit. This economic objective incorporated price, cost and a discount rate ($\gamma = 0.9$). In this simple economic model, (1) gross revenue, $R_{t}$, in year $t$ was obtained as the product of price (amount paid per kg of prawns) and harvest, or $R_{t} = p \ Y_{t}$; (2) gross expense obtained as the product of cost of a unit of fishing, in boat-days, and fishing effort, $X_{t} = c \ E_{t}$. The profit or net revenue (or loss) is the difference between gross revenue and expense: $P_{t} = R_{t} - X_{t}. The objective of the optmization was to maximize profit:
+%  \begin{equation}
+%    O = max \Sum_{t=1}^{\infty} \gamma^{t} \ P_{t} = max \Sum_{t=1}^{\infty} \gamma^{t} \ ( p \ Y_{t} - c \ E_{t})
+%  \end{equation}
+  
+\end{itemize}
+
+\noindent {\bf 3. Results}\\
+
+\begin{itemize}
+\item Simulation using the stock assessment taken as a black box shows that the probability of transitioning between years from one state of the system to another is almost even when there is no fishing pressure (show bubble plot figure). On the other extreme of the spectrum of actions, the highest fishing pressure (45.000--50.000 boat-days) alters the system towards ending up into the lowest level of production with highest probability irrespective of the initial state it was in. 
+\item Parametrizing the MDP reward function with fishing profits results in optimal policies that are monotic increasing function of abundance. This result is qualitatively similar to observed characteristics of the fishery (the decline of fishing effort over time thought to be induce by economic factors, correlation between recruitment and effort). Quantitatively the level of effort observed at a given level of recruitment are in the region of optimal fishing effort provided by the MDP using a profit function (comparison of observed recruitment and effort values to MDP optimal policy) but not a catch or catch per unit of effort function
+\item The optimal strategy is to fish harder the more abundant the resource. It maximizes industry profits allowing it to extract as much as 2.5 M\$ at 12\$/kg for a cost of 200\$ per boat-day (Show a table giving maximum profit as a function of prices and costs). %Maximum profit at the level of the fishing industry is achieved by fishing harder the more abundant the resource
+\item The MDP provides a mechanism to explain the dynamic of effort observed in the last 20 years: fishing ceases as it becomes unprofitable. Adverse economic conditions reduce fishing effort expanded in this fishery. Economics explains in part the fluctuations of effort in this fishery.
+\item The optimal fishing strategy from a profitability point of view is to fish the stock harder the more abundant it is
+\item The optimal fishing effort is always below effort at Maximum Sustainable Yield (MSY): in the current economic conditions, it is economically un-profitable to fish this stock at MSY. Economics acts as a safe guard against biological over-exploitation.
+\item Assuming fishing effort expanded by the entire industry guided by profit behaves according to the optimal strategy,  fishing ceases at low prawn abundances because each small business involve in the extractive process cannot incure losses for a long period of time. Profitability effectively acts as a mechanism that protects the stock at low level of abundance. 
+\end{itemize}
+
+\noindent {\bf 4. Discussion}\\
+
+\begin{itemize}
+\item The large amount of latent effort is perceived in some sector of the government as a threat to sustainability and requires priority intervention in the form of a buyback program. The fact that these effort allocation have been unused for many years suggests that some factors prevent owner to use them. The present study suggests that in the current economic context, the optimal strategy is to use only a portion of the available effort. The perceived threat will not eventuate until economic condition evolve into a new situation that reverses the declining trend in fishing effort observed since 2000. This work also highlight that capping effort to a level equal or below that currently expanded is economically counter productive as it will limit the industry to a sub-optimal condition. 
+\item The profit function provides a mechanisms to explain the declining trends in fishing effort observed over the last 20 years.
+\item Tactical decision to fishermen, strategic decisions to government.
+
+%\item The profit reward function provides qualitatively
+\item The optimum fishing policy are quantitatively similar to the total amount of fishing effort expanded at a given recruitment level suggests that a MDP representing the fishing fleet as a whole can represent the behaviour of fishing decisions made in reality at the level of each individual boats.
+\item It is possible that a more detailed knowledge of the values of economic quantities that influenced this fishery over time would provide a detailed model capable of reproducing the observed trends in fishing effort over time. This level of details is, for now, beyond our reach. Nevertheless, MDPs provided a framework to think about management of this fishery economics above and beyond biological and ecological aspects of the dynamic of this fishery. 
+\item A government interested in maintaining and improving employment opportunity for its constituent could address the decline in fishing effort by influencing fishing profit either increasing income by for example allowing fishermen to commercialise by-catch species or reducing costs by giving tax incentives as it is done for other industries. 
+
+\item The quality of results of MDPs depends on the quality of the transition matrix. The transition matrices were calculated from the population model that best fitted reported catch and effort data selected from a range of models using likelihood based methods (CITE Kienzle, 2014, 2016). Improvement to the outcome of MPDs by improving the transition matrix belongs to the phase of calibrating the stock assessment model not applying an MDP.
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Citations}
+
+\begin{itemize}
+\item 
+\end{itemize}
+
+%% Bibliography
+\bibliographystyle{plainnat}
+\bibliography{/home/mkienzle/mystuff/Bibliography/long,/home/mkienzle/mystuff/Bibliography/Biblio}
+
+
+\end{document}
